@@ -106,5 +106,14 @@ export default function createStore<
       }
     }
   }
+  // 返回store
+  const store = ({
+    dispatch: dispatch as Dispatch<A>,
+    subscribe,
+    getState,
+    replaceReducer,
+    [$$observable]: observable
+  } as unknown) as Store<ExtendState<S, StateExt>, A, StateExt, Ext> & Ext
+  return store
 }
 ```
