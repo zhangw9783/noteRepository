@@ -96,3 +96,7 @@ function index(){
 - ReactDOM.flushSync 提高回调函数中的更新的优先级
 - ReactDOM.findDOMNode 用于访问组件的DOM元素
 - ReactDOM.unmountComponentAtNode 从DOM中卸载组件
+
+## 高阶组件
+
+> 参数为一个组件，返回值也是一个组件的组件。
