@@ -61,5 +61,50 @@ export default function createStore<
         }
         return action
     }
+    /*
+     * 替换reducer，当代码分割需要异步加载reducer的时候
+     * currentReducer替换成新的reducer
+     * 然后再dispatch一个REPLACE
+    */
+    function replaceReducer<NewState, NewActions extends A>(
+        nextReducer: Reducer<NewState, NewActions>
+    ): Store<ExtendState<NewState, StateExt>, NewActions, StateExt, Ext> & Ext {
+        ;((currentReducer as unknown) as Reducer<
+            NewState,
+            NewActions
+        >) = nextReducer
+        dispatch({ type: ActionTypes.REPLACE } as A)
+        return (store as unknown) as Store<
+            ExtendState<NewState, StateExt>,
+            NewActions,
+            StateExt,
+            Ext
+            > &
+            Ext
+    }
+    /**
+     * 生成一个最小量级的发布订阅方法
+     * 返回一个带subscribe方法的对象
+     * subscribe订阅的对象通过next方法来获取最新的state
+     */
+    function observable() {
+    const outerSubscribe = subscribe
+    return {
+      subscribe(observer: unknown) {
+        function observeState() {
+          const observerAsObserver = observer as Observer<S>
+          if (observerAsObserver.next) {
+            observerAsObserver.next(getState())
+          }
+        }
+        observeState()
+        const unsubscribe = outerSubscribe(observeState)
+        return { unsubscribe }
+      },
+      [$$observable]() {
+        return this
+      }
+    }
+  }
 }
 ```
