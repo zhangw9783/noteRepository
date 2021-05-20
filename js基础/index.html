@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise测试</title>
+</head>
+
+<body>
+    <h1>手写Promise测试</h1>
+    <script src="./Promise.js"></script>
+    <script>
+        // let a = new Promise(() => { })
+        // console.log(Promise, a);
+        async function async1() {
+            console.log('async1 start')
+            await async2()
+            console.log('async1 end')
+        }
+        async function async2() {
+            console.log('async2')
+        }
+        console.log('script start')
+        setTimeout(function () {
+            console.log('setTimeout')
+        }, 0)
+        async1();
+        new Promise(function (resolve) {
+            console.log('promise1')
+            resolve();
+        }).then(function () {
+            console.log('promise2')
+        })
+        console.log('script end')
+    </script>
+</body>
+
+</html>
