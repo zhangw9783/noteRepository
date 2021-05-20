@@ -89,6 +89,9 @@ function index(){
 - useContext
 - useImperativeHandle
 - useDebugValue React开发工具中自定义hook标签
+- 17.0.2的实验阶段hook
+    - useDeferredValue 返回一个延迟响应的 `const deferredValue = useDeferredValue(value, { timeoutMs: 2000 });`
+    - useTransition 允许组件切换到下一个界面之前等待内容加载
 - ReactDOM.render
 - ReactDOM.hydrate 服务端渲染
 - ReactDOM.createPortal 将组件渲染到父组件以外的容器中
