@@ -49,8 +49,8 @@ function toGray(c) {
 
 //马赛克
 function mosaic(imageData, size) {
-    for (let i = 0; i < imageData.width; i ++ ) {
-        for (let j = 0; j < imageData.height; j ++ ) {
+    for (let i = 0; i < imageData.width; i += size ) {
+        for (let j = 0; j < imageData.height; j += size ) {
             let r_sum = 0
             let g_sum = 0
             let b_sum = 0
@@ -166,7 +166,7 @@ function blur(imgData, radius) {
     return imgData;
 }
 
-//白色蒙板层
+//蒙板层
 function mask(imageData, rgb) {
     rgb = rgb || [255, 255, 255]
     let { width, height } = imageData
@@ -188,9 +188,9 @@ drawImage(ctx, "./webp.webp")
 canvas.onmouseenter = () => {
     getImageData("./webp.webp").then(res => {
         // let imgData = toGray(res)
-        // let imgData = mosaic(res, 3)
+        let imgData = mosaic(res, 10)
         // let imgData = blur(res, 3)
-        let imgData = mask(res, [255, 100, 200])
+        // let imgData = mask(res, [255, 100, 200])
         drawImageData(imgData)
     })
 }
