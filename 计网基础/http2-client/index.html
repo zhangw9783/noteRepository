@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Http2接口测试</title>
+</head>
+<body>
+    <h1>Http2 api test</h1>
+    <p>Get the message:</p>
+    <button onClick="getmessage()">Get Message</button>
+    <p id="msg"></p>
+    <script>
+        function getmessage() {
+            let http = new XMLHttpRequest()
+            http.onreadystatechange = () => {
+                if (http.readyState === 4)
+                    if (http.status == 200) {
+                        let res = JSON.parse(http.responseText)
+                        document.querySelector('#msg').textContent = `The message from the server is '${res.message}'.`
+                    }
+            }
+            http.open('get', 'https://localhost:3000/message', true)
+            http.send()
+        }
+    </script>
+</body>
+</html>
