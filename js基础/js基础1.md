@@ -51,4 +51,22 @@ js中的数字都是浮点类型，都采用了IEEE754编码方式
 ### 抽象操作
 
 - ToString：非字符串到字符串的强制类型转换。null->"null", undefined->"undefined", true->"true", 普通对象则调用toString方法。toJSON方法可以修改JSON序列化结果，需要返回一个JSON安全值，再对该值调用JSON.stringify()得到字符串。
-- ToNumber：
+- ToNumber：冲非数字转化到数字操作。true->1, false->0, undefined->NaN, null->0。抽象操作toPrimitive首先检查是否有valueOf方法，有且返回基本类型，就用该值进行强制类型转换。否则用toString的值进行强制类型转换。否则产生TypeError错误。
+- ToBoolean：从非boolean转化为boolean的抽象操作。undefined,null,false,+0,-0,NaN,""的转化结果为假值，其余转化均为真值。
+- ToPrimitive: 传入hint是string，则先调用toString方法，返回的是基础值，则返回，否则调用valueOf方法，返回基础值则调用，否则抛出TypeError错误，如果hint传入的是Number或者空，则先调用valueOf之后调用string，复杂对象同Number转换过程，除了Date对象，会直接调用toString。
+
+### ～运算符
+
+> js中在执行位运算符之前，会先将操作数转化为int32类型的数据。
+
+### 宽松相等与严格相等（==与===）
+
+> 宽松相等会进行隐式的强制类型转换。
+
+- NaN不等于NaN
+- +0等于-0
+- 字符串和数字比较，会将字符串转化为数字
+- 数字和boolean比较，会将boolean转化为数字
+- boolean和字符串比较，会全部转化为数字比较(特殊的是false等于'')
+- null == undefined, 两者会转化为假阳(false positive)结果，且只有这两个转化出假阳。
+- 对象和非对象之间的转换执行X==ToPrimitive(Y)操作。
