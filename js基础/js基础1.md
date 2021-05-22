@@ -70,3 +70,11 @@ js中的数字都是浮点类型，都采用了IEEE754编码方式
 - boolean和字符串比较，会全部转化为数字比较(特殊的是false等于'')
 - null == undefined, 两者会转化为假阳(false positive)结果，且只有这两个转化出假阳。
 - 对象和非对象之间的转换执行X==ToPrimitive(Y)操作。
+
+
+### js类型判断
+
+- typeof 判断
+- 鸭子类型检测，检测是否存在相应的方法
+- instanceof检测原型链
+- Object.prototype.toString检测(更改Symbol.toStringTag属性的值也可以更改结果，也并非绝对安全)
