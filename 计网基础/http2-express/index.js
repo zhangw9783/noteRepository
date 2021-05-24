@@ -33,7 +33,7 @@ const options = {
     cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
 }
 
-spdy.createServer(options, app).listen(3000, err => {
+spdy.createServer(options, app).listen(port, err => {
     if (err) throw new Error(err)
-    console.log("Listening at:", 3000);
+    console.log("Listening at:", port);
 })
