@@ -104,8 +104,6 @@ function index(){
 
 > 参数为一个组件，返回值也是一个组件的组件。
 
-## React新老架构对比
+## React源码解读
 
-- 15架构可分为两层
-    - Reconciler（协调器）------负责找出变化的组件
-    - Renderer（渲染器）------负责将变化的组件渲染到页面上
+- [React原理解析](https://yuchengkai.cn/react/#%E4%BB%8B%E7%BB%8D)
