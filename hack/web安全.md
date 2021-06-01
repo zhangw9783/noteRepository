@@ -25,9 +25,22 @@
 
 - TCP报文头
 ![TCP报文头](./img/TCP报文头.png)
-    - [TCP报文结构](https://blog.csdn.net/qq_16681169/article/details/50831856)
+    - [TCP报文结构【CSDN】](https://blog.csdn.net/qq_16681169/article/details/50831856)
 
 - [面试官，不要再问我三次握手和四次挥手【掘金】](https://juejin.cn/post/6844903958624878606#heading-0)
+
+- [TCP拥塞控制【华为云】](https://www.huaweicloud.com/articles/912cb7c3b49f2a5bc792a140bb4d7a87.html)
+
+- [TCP流量控制、拥塞控制【知乎】](https://zhuanlan.zhihu.com/p/37379780)
+
+### DHCP协议
+
+> 动态主机配置协议 (Dynamic Host Configuration Protocol，DHCP) 是一个用于局域网的网络协议，位于OSI模型的应用层，使用UDP协议工作，主要用于自动分配IP地址给用户，方便管理员进行统一管理。
+DHCP服务器端使用67/udp，客户端使用68/udp。DHCP运行分为四个基本过程，分别为请求IP租约、提供IP租约、选择IP租约和确认IP租约。客户端在获得了一个IP地址以后，就可以发送一个ARP请求来避免由于DHCP服务器地址池重叠而引发的IP冲突。
+
+![DHCP报文](./img/DHCP报文.jpeg)
+
+- [DHCP协议详解【知乎】](https://zhuanlan.zhihu.com/p/265293856)
 
 ## 常见Web安全
 
