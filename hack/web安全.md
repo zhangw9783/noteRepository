@@ -42,6 +42,38 @@ DHCP服务器端使用67/udp，客户端使用68/udp。DHCP运行分为四个基
 
 - [DHCP协议详解【知乎】](https://zhuanlan.zhihu.com/p/265293856)
 
+### 路由算法
+
+> 从源路由器到目的路由器的最佳路径算法
+- [路由算法【web安全学习笔记】](https://websec.readthedocs.io/zh/latest/network/route.html)
+
+#### 要求
+
+- 正确性
+- 简单性
+- 自适应性
+- 稳定性
+- 公平性
+- 最优性
+
+#### 路由选择协议类型
+
+- 内部网关协议IGP(Interior Gateway Protocol)，在一个AS(Autonomous System，自治系统)
+- 外部网关协议EGP(External Gateway Protocol)，不在一个AS
+
+#### 常见路由协议
+
+- RIP(Routing Infomation Protocol)，路由信息协议
+- OSPF(Open Shortest Path Frist)，开放最短路径优先
+- BGP-4(Boreder Gateway Protocol)，边界网关协议
+
+- [“RIP协议”与“OSPF协议”的相同点与不同点是什么？【简书】](https://www.jianshu.com/p/2898dc090e1d)
+- [RIP路由协议【简书】](https://www.jianshu.com/p/f542d5b415a1)
+- [开放式最短路径优先【维基百科】](https://zh.wikipedia.org/wiki/%E5%BC%80%E6%94%BE%E5%BC%8F%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E4%BC%98%E5%85%88)
+
+
+
+
 ## 常见Web安全
 
 ### 前端Html5存储
